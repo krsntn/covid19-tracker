@@ -1,0 +1,23 @@
+@import 'scss/colors.scss';
+@import 'scss/fonts.scss';
+
+.icon {
+  max-width: 400px;
+
+  svg {
+    font-size: 3rem;
+
+    &[data-emergence='visible'] {
+      opacity: 1;
+      animation: bounceIn 2s;
+    }
+
+    &[data-emergence='hidden'] {
+      opacity: 0;
+    }
+  }
+
+  &:hover {
+    animation: pulse 0.5s;
+  }
+}
