@@ -1,6 +1,6 @@
 import { graphql } from 'gatsby';
 import React, { useState, useEffect, useCallback, useMemo } from 'react';
-import get from 'lodash/get';
+import { get, isEmpty } from 'lodash';
 import Meta from 'components/meta';
 import Layout from 'components/layout';
 import InputForm from 'components/inputForm';
@@ -93,7 +93,7 @@ const Index = ({ data, location }) => {
           selectedCountry={selectedCountry}
           onCountryChange={onCountryChange}
         />
-        {_.isEmpty(latestData) ? (
+        {isEmpty(latestData) ? (
           <div className="text-center" style={{ fontSize: 50 }}>
             No data found.
           </div>
