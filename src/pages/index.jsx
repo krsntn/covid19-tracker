@@ -105,14 +105,6 @@ const Index = ({ data, location }) => {
             <div className="row">
               <div className="col-lg-12 col-xl-4">
                 <Card
-                  title="Confirmed"
-                  number={TodayConfirmed}
-                  icon="ambulance"
-                  theme="warning"
-                />
-              </div>
-              <div className="col-lg-12 col-xl-4">
-                <Card
                   title="Active"
                   number={Active}
                   icon="heartbeat"
@@ -133,6 +125,14 @@ const Index = ({ data, location }) => {
                   number={TodayRecovered}
                   icon="smile"
                   theme="success"
+                />
+              </div>
+              <div className="col-lg-12">
+                <Card
+                  title="Confirmed"
+                  number={TodayConfirmed}
+                  icon="ambulance"
+                  theme="warning"
                 />
               </div>
               <div className="col-12">
