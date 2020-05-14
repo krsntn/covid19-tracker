@@ -1,11 +1,15 @@
 @import 'scss/colors.scss';
 @import 'scss/fonts.scss';
+@import 'scss/gatstrap.scss';
 
 .icon {
   max-width: 400px;
 
   svg {
     font-size: 3rem;
+    @include media-breakpoint-down(xs) {
+      font-size: 2rem;
+    }
 
     &[data-emergence='visible'] {
       opacity: 1;

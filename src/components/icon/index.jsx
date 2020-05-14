@@ -23,8 +23,8 @@ library.add(
   faNotesMedical
 );
 
-const Icon = ({ name, classes }) => (
-  <div className={`icon ${classes}`} title={name}>
+const Icon = ({ name, className }) => (
+  <div className={`icon ${className}`} title={name}>
     <FontAwesomeIcon icon={['fas', name]} />
   </div>
 );

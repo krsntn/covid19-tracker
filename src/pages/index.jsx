@@ -7,9 +7,10 @@ import InputForm from 'components/inputForm';
 import Card from 'components/card';
 import Header from 'components/header';
 import Loading from 'components/loading';
+import Table from 'components/table';
 
 const Index = ({ data, location }) => {
-  const [selectedData, setSelectedData] = useState(null);
+  const [reportData, setReportData] = useState(null);
   const [selectedCountry, setSelectedCountry] = useState({
     Country: 'Malaysia',
     CountryCode: 'my',
@@ -29,11 +30,12 @@ const Index = ({ data, location }) => {
     const selected = countries.length
       ? countries.find((x) => x.Country === selectedCountry.Country)
       : { Slug: 'malaysia' };
+    console.log(selected);
     fetch(`https://api.covid19api.com/total/country/${selected.Slug}`)
       .then((response) => response.json())
-      .then((data) => setSelectedData(data.reverse()))
+      .then((data) => setReportData(data.reverse()))
       .then(() => setLoading(false));
-  }, [selectedCountry, setSelectedData, setLoading]);
+  }, [reportData, setReportData, setLoading, selectedCountry]);
 
   const fetchCountriesData = useCallback(() => {
     fetch('https://api.covid19api.com/countries')
@@ -50,9 +52,9 @@ const Index = ({ data, location }) => {
   );
 
   const latestData = useMemo(() => {
-    if (selectedData && selectedData.length > 2) {
-      const todayData = selectedData[0];
-      const yesterdayData = selectedData[1];
+    if (reportData && reportData.length > 2) {
+      const todayData = reportData[0];
+      const yesterdayData = reportData[1];
 
       const { Confirmed, Deaths, Recovered } = todayData;
       const {
@@ -69,7 +71,7 @@ const Index = ({ data, location }) => {
       };
     }
     return {};
-  }, [selectedData]);
+  }, [reportData]);
 
   const {
     Active,
@@ -94,7 +96,7 @@ const Index = ({ data, location }) => {
           onCountryChange={onCountryChange}
         />
         {isEmpty(latestData) ? (
-          <div className="text-center" style={{ fontSize: 50 }}>
+          <div className="text-center" style={{ fontSize: '2rem' }}>
             No data found.
           </div>
         ) : (
@@ -107,6 +109,14 @@ const Index = ({ data, location }) => {
                   number={TodayConfirmed}
                   icon="ambulance"
                   theme="warning"
+                />
+              </div>
+              <div className="col-lg-12 col-xl-4">
+                <Card
+                  title="Active"
+                  number={Active}
+                  icon="heartbeat"
+                  theme="pink"
                 />
               </div>
               <div className="col-lg-12 col-xl-4">
@@ -148,6 +158,11 @@ const Index = ({ data, location }) => {
                   icon="walking"
                   theme="info"
                 />
+              </div>
+            </div>
+            <div className="row">
+              <div className="col-12 overflow-auto">
+                <Table data={reportData} />
               </div>
             </div>
           </React.Fragment>

@@ -1,20 +1,18 @@
 import React from 'react';
+import { formatDate } from '../../utils/formatDate';
 
 const Header = (props) => {
   const { country, countryCode, date } = props;
 
   let dateTime = '';
   if (date) {
-    const dateValue = new Date(date);
-    dateTime = `${dateValue.getFullYear()}-${
-      dateValue.getMonth() + 1
-    }-${dateValue.getDate()}`;
+    dateTime = formatDate(date);
   }
 
   return (
     <div
-      className="d-flex justify-content-between font-weight-bold"
-      style={{ fontSize: 50, marginBottom: '4rem' }}
+      className="d-flex flex-wrap justify-content-between font-weight-bold"
+      style={{ fontSize: '2rem', marginBottom: '4rem' }}
     >
       <div>
         <img

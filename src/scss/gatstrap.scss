@@ -20,6 +20,7 @@ $theme-colors: (
   dark: $gray-800,
   orange: #d35400,
   grey: rgba(0, 0, 0, 0.6),
+  pink: $pink,
 ) !default;
 
 // Options
@@ -38,10 +39,10 @@ $enable-print-styles: true !default;
 // Define the maximum width of `.container` for different screen sizes.
 
 $container-max-widths: (
-  sm: 540px,
-  md: 840px,
-  lg: 1210px,
-  xl: 1480px,
+  sm: 440px,
+  md: 640px,
+  lg: 910px,
+  xl: 1280px,
 ) !default;
 
 // Body
@@ -69,6 +70,16 @@ html,
 body {
   height: 100%;
   width: 100%;
+  font-size: 18px;
+  @include media-breakpoint-down(lg) {
+    font-size: 16px;
+  }
+  @include media-breakpoint-down(md) {
+    font-size: 14px;
+  }
+  @include media-breakpoint-down(sm) {
+    font-size: 12px;
+  }
 }
 
 * {
