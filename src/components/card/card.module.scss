@@ -1,7 +1,7 @@
 @import 'scss/gatstrap.scss';
 
 .container {
-  margin-bottom: 4rem;
+  margin-bottom: 2rem;
 
   @include media-breakpoint-down(sm) {
     margin-bottom: 2rem;
@@ -9,18 +9,18 @@
 }
 
 .iconContainer {
-  top: -36px;
-  right: 30px;
-  min-width: 100px;
-  min-height: 100px;
+  top: -16px;
+  right: 10px;
+  width: 70px;
+  height: 70px;
   margin: auto;
   box-shadow: 0 0 20px 1px #999;
 
   @include media-breakpoint-down(xs) {
-    top: auto;
+    top: 0px;
     bottom: 0px;
-    right: 0px;
+    right: 10px;
     min-width: 50px;
-    min-height: 50px;
+    min-height: 50%;
   }
 }

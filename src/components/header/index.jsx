@@ -11,8 +11,8 @@ const Header = (props) => {
 
   return (
     <div
-      className="d-flex flex-wrap justify-content-between font-weight-bold"
-      style={{ fontSize: '2rem', marginBottom: '4rem' }}
+      className="d-flex flex-wrap justify-content-between align-items-center font-weight-bold"
+      style={{ fontSize: '1.25rem', marginBottom: '2rem' }}
     >
       <div>
         <img

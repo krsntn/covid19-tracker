@@ -20,8 +20,8 @@ const Table = (props) => {
 
   return (
     <table
-      className="table table-striped text-nowrap"
-      style={{ fontSize: '1.5rem' }}
+      className="table table-striped text-center"
+      style={{ fontSize: '1.25rem' }}
     >
       <thead className="thead-dark">
         <tr>

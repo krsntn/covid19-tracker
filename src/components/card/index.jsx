@@ -14,11 +14,11 @@ const Card = (props) => {
       <div className="card-body font-weight-bold">
         <div
           className={`card-title text-${theme}`}
-          style={{ fontSize: '2rem' }}
+          style={{ fontSize: '1.25rem' }}
         >
           {title}
         </div>
-        <div className="card-text" style={{ fontSize: '2.4rem' }}>
+        <div className="card-text" style={{ fontSize: '1.5rem' }}>
           {number && formatNumberWithCommas(number)}
         </div>
       </div>

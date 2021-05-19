@@ -30,7 +30,6 @@ const Index = ({ data, location }) => {
     const selected = countries.length
       ? countries.find((x) => x.Country === selectedCountry.Country)
       : { Slug: 'malaysia' };
-    console.log(selected);
     fetch(`https://api.covid19api.com/total/country/${selected.Slug}`)
       .then((response) => response.json())
       .then((data) => setReportData(data.reverse()))
@@ -68,6 +67,7 @@ const Index = ({ data, location }) => {
         TodayConfirmed: Confirmed - ytdConfirmed,
         TodayDeaths: Deaths - ytdDeaths,
         TodayRecovered: Recovered - ytdRecovered,
+        Cc: countries.find((x) => todayData.Country === x.Country).ISO2,
       };
     }
     return {};
@@ -82,14 +82,14 @@ const Index = ({ data, location }) => {
     TodayDeaths,
     TodayRecovered,
     Country,
-    CountryCode,
     Date,
+    Cc,
   } = latestData;
 
   return (
     <Layout location={location} data={get(data, 'site.meta')}>
       <Meta site={get(data, 'site.meta')} />
-      <div className="container mt-4 mb-4">
+      <div className="container mt-4 mb-4" style={{ maxWidth: 800 }}>
         <InputForm
           data={countries.sort((a, b) => (a.Country > b.Country ? 1 : -1))}
           selectedCountry={selectedCountry}
@@ -101,7 +101,7 @@ const Index = ({ data, location }) => {
           </div>
         ) : (
           <React.Fragment>
-            <Header country={Country} countryCode={CountryCode} date={Date} />
+            <Header country={Country} countryCode={Cc} date={Date} />
             <div className="row">
               <div className="col-lg-12 col-xl-4">
                 <Card
@@ -161,7 +161,7 @@ const Index = ({ data, location }) => {
               </div>
             </div>
             <div className="row">
-              <div className="col-12 overflow-auto">
+              <div className="col-12">
                 <Table data={reportData} />
               </div>
             </div>

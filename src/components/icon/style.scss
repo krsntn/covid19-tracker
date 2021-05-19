@@ -6,7 +6,7 @@
   max-width: 400px;
 
   svg {
-    font-size: 3rem;
+    font-size: 1.5rem;
     @include media-breakpoint-down(xs) {
       font-size: 2rem;
     }

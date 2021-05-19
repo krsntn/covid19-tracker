@@ -13,7 +13,7 @@ const InputForm = (props) => {
 
   return (
     <select
-      className="form-control form-control-lg mb-5"
+      className="form-control mb-3"
       onChange={onChangeHandle}
       value={selectedCountry.Country}
     >

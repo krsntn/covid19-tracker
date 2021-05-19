@@ -5,7 +5,7 @@ class Navi extends React.Component {
     const { title } = this.props;
     return (
       <nav className="navbar navbar-expand navbar-dark flex-column flex-md-row bg-primary">
-        <div className="container">
+        <div className="container justify-content-center">
           <h1 className="navbar-brand mb-0">{title}</h1>
         </div>
       </nav>
