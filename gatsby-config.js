@@ -3,7 +3,7 @@ module.exports = {
     title: 'Covid 19 Tracker',
     description: 'A quick Covid 19 tracking site',
     siteUrl: 'https://covid19-tracker.ga',
-    profileUrl: 'https://dev.karson.tk',
+    profileUrl: 'https://dev.krsn.xyz',
     author: 'karson',
   },
   pathPrefix: '/',
