@@ -14,7 +14,7 @@ const Header = (props) => {
       className="d-flex flex-wrap justify-content-between align-items-center font-weight-bold"
       style={{ fontSize: '1.25rem', marginBottom: '2rem' }}
     >
-      <div>
+      <div className="mx-2">
         <img
           src={`https://www.countryflags.io/${countryCode}/flat/64.png`}
           alt={countryCode}
@@ -22,7 +22,7 @@ const Header = (props) => {
         />
         {country}
       </div>
-      <div className="">{dateTime}</div>
+      <div className="mx-2">{dateTime}</div>
     </div>
   );
 };
