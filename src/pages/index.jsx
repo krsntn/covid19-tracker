@@ -1,6 +1,6 @@
 import { graphql } from 'gatsby';
-import React, { useState, useEffect, useCallback, useMemo } from 'react';
-import { map, get, isEmpty, cloneDeep } from 'lodash';
+import React, { useState, useEffect, useCallback } from 'react';
+import { map, get, isEmpty } from 'lodash';
 import Meta from 'components/meta';
 import Layout from 'components/layout';
 import InputForm from 'components/inputForm';
@@ -130,15 +130,15 @@ const Index = ({ data, location }) => {
       canv3.style = 'margin-bottom: 2rem';
       div.appendChild(canv3);
 
-      const chart1 = new Chart(canv1, {
+      new Chart(canv1, {
         type: 'line',
         data: data1,
       });
-      const chart2 = new Chart(canv2, {
+      new Chart(canv2, {
         type: 'line',
         data: data2,
       });
-      const chart3 = new Chart(canv3, {
+      new Chart(canv3, {
         type: 'line',
         data: data3,
       });
