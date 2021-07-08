@@ -5,19 +5,6 @@ import { formatDate } from '../../utils/formatDate';
 const Table = (props) => {
   const { data } = props;
 
-  const calcDayRecord = useCallback((dayRecord, dayBeforeRecord) => {
-    const {
-      Confirmed: ytdConfirmed,
-      Deaths: ytdDeaths,
-      Recovered: ytdRecovered,
-    } = dayBeforeRecord;
-    dayRecord.Confirmed = dayRecord.Confirmed - ytdConfirmed;
-    dayRecord.Deaths = dayRecord.Deaths - ytdDeaths;
-    dayRecord.Recovered = dayRecord.Recovered - ytdRecovered;
-
-    return dayRecord;
-  }, []);
-
   return (
     <table
       className="table table-striped text-center"
@@ -34,19 +21,13 @@ const Table = (props) => {
       <tbody>
         {data &&
           _.map(data, (record, index) => {
-            let todayRecord = _.clone(record);
-
-            if (index !== data.length - 1) {
-              todayRecord = calcDayRecord(record, data[index + 1]);
-            }
-
-            const { Confirmed, Active, Deaths, Recovered } = todayRecord;
+            const { DayConfirmed, DayDeaths, DayRecovered } = record;
             return (
               <tr key={index}>
                 <th scope="row">{formatDate(record.Date)}</th>
-                <td>{Confirmed}</td>
-                <td>{Deaths}</td>
-                <td>{Recovered}</td>
+                <td>{DayConfirmed}</td>
+                <td>{DayDeaths}</td>
+                <td>{DayRecovered}</td>
               </tr>
             );
           })}
